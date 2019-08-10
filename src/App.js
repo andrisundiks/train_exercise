@@ -1,25 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'bulma/css/bulma.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <section className="hero is-success is-fullheight">
+        <div className="hero-body">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-one-fifth">
+                  <section className="is-pulled-right">
+                      <div className="field">
+                          <div className="control">
+                              <select
+                                  name="origin"
+                                  className="select is-info"
+                              >
+                              </select>
+                          </div>
+                      </div>
+                      <div className="field">
+                          <div className="control">
+                              <select
+                                  name="destination"
+                                  className="select is-info"
+                              >
+                              </select>
+                          </div>
+                      </div>
+                  </section>
+              </div>
+              <div className="column box">Auto</div>
+            </div>
+          </div>
+        </div>
+      </section>
   );
 }
 
