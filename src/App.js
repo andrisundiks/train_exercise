@@ -10,20 +10,19 @@ function App() {
    const [ currentRoute, setCurrentRoute ] = useState([]);
 
    // Creates array of jsx objects from trainRoutes to populate our select elements
-   const generateOriginList = () => {
+    // making sure the user cannot pick same value for both origin and destination
+   const generateCityList = item => {
+       const oppositeValue = item === origin? destination : origin;
        return Object.keys(trainRoutes).map( city => {
-           if(city !== destination) { return <option value={city}> {city} </option> }
+           if(city !== oppositeValue) { return <option value={city}> {city} </option> }
        })
    };
-    const generateDestList = () => {
-        return Object.keys(trainRoutes).map( city => {
-            if(city !== origin) { return <option value={city}> {city} </option> }
-        })
-    };
 
+    // Event handlers
    const handleOrigin = e => { setOrigin(e.target.value) };
    const handleDestination = e => { setDestination(e.target.value) };
 
+   // Our main function.
    const checkConnection = (link = origin, dest = destination, route = []) => {
        route.push(link);
        const links = trainRoutes[link];
@@ -66,7 +65,7 @@ function App() {
                                   value={ origin }
                                   onChange={ handleOrigin }
                               >
-                                  { generateOriginList() }
+                                  { generateCityList(origin) }
                               </select>
                           </div>
                       </div>
@@ -79,7 +78,7 @@ function App() {
                                   value={ destination }
                                   onChange={ handleDestination }
                               >
-                                  { generateDestList() }
+                                  { generateCityList(destination) }
                               </select>
                           </div>
                       </div>
