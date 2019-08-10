@@ -1,15 +1,8 @@
 
 export const trainRoutes = {
-        Edinburgh: {
-            Glasgow: true,
-            London: true,
-        },
-        London: {
-            Edinburgh: true,
-            Glasgow: true,
-            Liverpool: true,
-        },
-        Liverpool: {
-            London: true,
-        }
+    'Edinburgh': ['Glasgow', 'London'],
+    'London': ['Edinburgh', 'Glasgow', 'Liverpool', 'Swansea'],
+    'Liverpool': ['London', 'Swansea'],
+    'Glasgow': ['Edinburgh', 'London'],
+    'Swansea': ['Liverpool', 'London']
 };
